@@ -9,5 +9,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT e FROM User e JOIN FETCH e.roles WHERE e.userName = :username")
     public User findByUsername(@Param("userName") String username);
+
+    public Boolean existsByUsername(String Username);
     }
 

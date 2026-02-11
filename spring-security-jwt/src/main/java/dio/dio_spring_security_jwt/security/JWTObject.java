@@ -5,10 +5,12 @@ import java.util.Date;
 import java.util.List;
 
 public class JWTObject {
-    private String subject;
-    private Date issuedAt;
-    private Date expiration;
-    private List<String> roles;
+
+
+    private String subject; // Identifica o "dono" do token
+    private Date issuedAt; // Data e hora em que o token foi gerado
+    private Date expiration; // Data e hora em que o token expira
+    private List<String> roles;// Lista de permissões ou papéis do usuário (ex: ROLE_USER, ROLE_ADMIN)
 
     public void setRoles(String... roles){
         this.roles = Arrays.asList(roles);

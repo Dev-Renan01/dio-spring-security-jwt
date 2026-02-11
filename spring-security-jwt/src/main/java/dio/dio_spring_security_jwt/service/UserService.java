@@ -10,13 +10,16 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     private UserRepository repository;
+
+    // Interface do Spring Security responsável por criptografar e validar senhas de forma segura.
+    // Evita que senhas sejam armazenadas em texto puro no banco de dados.
     @Autowired
     private PasswordEncoder encoder;
 
     public void createUser(User user){
         String pass = user.getPassword();
-        //criptografando antes de entrar no banco
-        user.setPassword(encoder.encode(pass));
+        user.setPassword(encoder.encode(pass));//criptografando antes de entrar no banco
+
         repository.save(user);
     }
 }
